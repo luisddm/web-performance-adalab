@@ -120,6 +120,11 @@ body {
   display: block;
   margin-left: 40px; }
 
+.reveal li {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
 .reveal dt {
   font-weight: bold; }
 

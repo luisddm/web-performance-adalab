@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Rendimiento en frontend - Adalab</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,18 +25,331 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+				<section data-background="#14D9C4">
+					<h2>Rendimiento en frontend</h2>
+					<h3>¡la velocidad y el tamaño importan!</h3>
+					<img style="background: #fff; padding: 20px; height: 120px" src="images/adalab.svg">
+					<pre><code class="hljs html" style="font-size: 32px; padding: 20px; text-align: center; word-wrap: break-word;">luisddm.github.io/web-performance-adalab</code></pre>
+				</section>
+				
+				<section data-background="#14D9C4">
+					<h2>Presentación</h2>
+				</section>
+
+				<section>
+					<h2>Quién soy</h2>
+					<ul>
+						<li>Ingeniero de Teleco y autodidacta</li>
+						<li>Trabajo en Alea Soluciones</li>
+						<li>Coorganizador de FrontFest</li>
+						<li>Aficionado a la seguridad y la electrónica</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Qué hacía antes</h2>
+					<ul>
+						<li>Cuatro años trabajando en frontend</li>
+						<li>Previamente fui becario y freelance</li>
+						<li>Orgulloso alumnus de h4ckademy</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Qué (debería) ser el desarrollo de software</h2>
+					<p><span style="font-style: italic">Opinión personal</span></p>
+					<ul>
+						<li>No atarse a tecnologias específicas, ser versátil</li>
+						<li>Buena gestión y buen código</li>
+						<li>Lo más importante, las personas</li>
+						<li>Especializarse está bien, pero evitar silos también</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>¡Ojo con los frameworks!</h2>
+					<p><a href="http://javisantana.com/2019/04/07/odio-los-framework.html">→ Odio los frameworks</a> (Javi Santana)</p>
+				</section>
+
+				<section data-background="#14D9C4">
+					<h2>Motivación</h2>
+				</section>
+
+				<section>
+					<h2>Tenemos un problema con la web</h2>
+					<p>Tamaño, lentitud, complejidad, falta de usabilidad</p>
+					<p>No se pensó para su uso actual</p>
+				</section>
+
+				<section>
+					<h2>Posibles causas</h2>
+					<ul>
+						<li>Mal código que crece desmesuradamente</li>
+						<li>No analizar correctamente al usuario objetivo</li>
+						<li>Falta de atención a los detalles</li>
+						<li>Decisiones tecnológicas erróneas</li>
+						<li>...</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Análisis y soluciones</h2>
+					<h4>Analizaremos el problema</h4>
+					<p>Por qué ocurre, desde cuando ocurre, en qué impacta</p>
+					<h4>Propondremos soluciones</h4>
+					<p>Cómo ganar simplicidad, ligereza y rapidez</p>
+				</section>
+
+				<section data-background="#14D9C4">
+					<h2>Análisis</h2>
+				</section>
+
+				<section>
+					<h2>Breve historia de la web</h2>
+					<ul>
+						<li><strong>1990:</strong> HTTP, HTML y el primer navegador</li>
+						<li><strong>1995:</strong> Javascript</li>
+						<li><strong>1996:</strong> CSS</li>
+						<li><strong>1997-1998:</strong> Comercialización de la web</li>
+						<li><strong>1999-2001:</strong> Burbuja punto com</li>
+						<li><strong>2002:</strong> Web 2.0</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Cómo hemos cambiado</h2>
+					<ul>
+						<li>De simple texto con hipervínculos a grandes aplicaciones enriquecidas</li>
+						<li>De compartir conocimiento a negocio</li>
+						<li>De unos pocos "frikis" al público en general</li>
+					</ul>
+					<p><a href="https://httparchive.org/reports/state-of-the-web">→ HTTP Archive: State of the Web</a></p>
+				</section>
+
+				<section>
+					<h2>Caso de estudio: USA Today</h2>
+					<ul>
+						<li>Edición USA vs edición UE (post RGPD)</li>
+						<li>Usaremos las Dev Tools del navegador</li>
+						<ul>
+							<li>Pestaña de <span style="font-style: italic">network</span></li>
+							<li>Forzar el <span style="font-style: italic">throttling</span></li>
+						</ul>
+						<li>Peso total vs transferido</li>
+						<ul>
+							<li>Depende de caché, cabeceras, compresión, redirecciones...</li>
+						</ul>
+					</ul>
+					<p><a href="https://usatoday.com">→ USA Today</a></p>
+					<p><a href="https://twitter.com/paulcalvano/status/1000094333524201473?lang=es">→ Twit de @paulcalvano</a></p>
+				</section>
+
+				<section>
+					<h2>Otros casos de estudio</h2>
+					<table>
+						<tr>
+							<th>Sitio web</th>
+							<th>Tx / Total</th>
+							<th>Req.</th>
+						</tr>
+						<tr>
+							<td>Marca</td>
+							<td>5,6 / 13,8 MB</td>
+							<td>~600</td>
+						</tr>
+						<tr>
+							<td>El País</td>
+							<td>6,1 / 17,6 MB</td>
+							<td>~450</td>
+						</tr>
+						<tr>
+							<td>Tumblr</td>
+							<td>3,6 / 6,2 MB</td>
+							<td>~75</td>
+						</tr>
+						<tr>
+							<td>Medium</td>
+							<td>1,4 / 3,3 MB</td>
+							<td>~50</td>
+						</tr>
+					</table>
+				</section>
+
+				<section data-background="#14D9C4">
+					<h2>¿A quién perjudica esto?</h2>
+				</section>
+
+				<section>
+					<h2>Ámbito geográfico</h2>
+					<p>Algunas de las webs que hacemos las utiliza gente que vive en entornos muy diferentes</p>
+					<p><a href="http://www.movistar.es/particulares/coberturas/movil/4G/">→ Mapa cobertura Movistar 4G</a></p>
+					<p><a href="https://elpais.com/tecnologia/2019/04/02/actualidad/1554202078_983656.html">→ Muchas zonas de Europa aún carecen de conexión de calidad a Internet (El País)</a></p>
+				</section>
+
+				<section>
+					<h2>Dispositivos heterogéneos</h2>
+					<p>Existe una ingente variedad de dispositivos para acceder a la web, que cuestan desde decenas a miles de euros</p>
+				</section>
+
+				<section>
+					<h2>Elevado consumo de datos</h2>
+					<p>¿Cuántas webs podemos ver con un giga de datos?</p>
+				</section>
+
+				<section>
+					<h2>Bajo "engagement"</h2>
+					<p>Cuando una web tarda demasiados segundos en cargar, la abandonamos</p>
+				</section>
+
+				<section>
+					<h2>Accesibilidad</h2>
+					<p>El mal rendimiento implica exclusión de algunos segmentos de población</p>
+				</section>
+
+				<section>
+					<h2>Privacidad</h2>
+					<p>Enorme cantidad de trackers que obtienen datos personales permanentemente a grandes empresas de internet, incluso sin estar logueados, y que ralentizan la web</p>
+				</section>
+
+				<section data-background="#14D9C4">
+					<h2>Soluciones</h2>
+				</section>
+
+				<section>
+					<h2>Principio de Pareto</h2>
+					<p>También conocido como regla del 80/20</p>
+					<p>Disponemos de tiempo y presupestos limitados, así que hay que priorizar las optimizaciones</p>
+				</section>
+
+				<section>
+					<h2>Comprimir y redimensionar imágenes</h2>
+					<ul>
+						<li>Saber cuándo usar JPG, PNG, SVG u otros</li>
+						<li>Buscar un balance entre calidad y tamaño reducido</li>
+						<li>¡No GIFs ni Flash!</li>
+						<li>En CSS, usar diferentes imágenes para diferentes media queries</li>
+						<li>Usar tag <code>&lt;picture&gt;</code></li>
+					</ul>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">→ El elemento Picture en MDN</a></p>
+				</section>
+
+				<section>
+					<h2>Lo mismo con los vídeos</h2>
+					<ul>
+						<li>Elegir el formato adecuado (WebM, MP4, OGG...) pero cuidado con la compatibilidad</li>
+						<li>¡No GIFs animados! Usar vídeo en su lugar</li>
+						<li>¡No autoplay! Que decida el usuario</li>
+						<li>Cuidado con incrustar vídeos de YouTube</li>
+					</ul>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">→ El Elemento Video en MDN</a></p>
+				</section>
+
+				<section>
+					<h2>Minificar y concatenar</h2>
+					<ul>
+						<li>Minificar es eliminar espacios, intros, etc., reducir nombres de variables y otras técnicas similares para restar tamaño</li>
+						<li>Concatenar es juntar todos los archivos JS y CSS en uno solo para reducir las peticiones HTTP</li>
+						<li>Los frameworks suelen automatizar ambas cosas para el código de producción</li>
+					</ul>
+					<p><a href="https://github.com/luisddm/gulp-adalab">→ Ejemplo con Gulp.js</a></p>
+				</section>
+
+				<section>
+					<h2>Tipografías</h2>
+					<ul>
+						<li>Si importamos con <code>@font-face</code> en CSS, usar formato <strong>woff2</strong> siempre que se pueda</li>
+						<li>Usar adecuadamente <code>font-display</code> para que el texto sea visible con una fuente de fallback mientras se carga la nuestra</li>
+						<li>Cuidado con importarlas directamente de Google Fonts o similares</li>
+					</ul>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">→ La regla @font-face de CSS</a></p>
+				</section>
+
+				<section>
+					<h2>Otros detalles</h2>
+					<ul>
+						<li>Colocar scripts siempre al final del <code>&lt;body&gt;</code> para no bloquear el renderizado</li>
+						<li>Eliminar en la medida de lo posible todo el JS y CSS que no se use</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Compresión de datos y cacheado</h2>
+					<p>Ahorran mucha transferencia de datos, pero dependen de la política del servidor</p>
+				</section>
+
+				<section>
+					<h2>HTTP/2</h2>
+					<ul>
+						<li>Evita la necesidad de concatenar y modifica otras buenas prácticas de HTTP/1.1</li>
+						<li>Ha de estar soportado tanto por el servidor como por el navegador</li>
+					</ul>
+					<p><a href="https://developers.google.com/web/fundamentals/performance/http2/">→ Introducción a HTTP/2</a></p>
+				</section>
+
+				<section>
+					<h2>Progressive enhancement</h2>
+					<ul>
+						<li>Implica una forma integral de pensar y desarrollar</li>
+						<li>Construir primero lo básico y añadir mejoras que se activen en función de las capacidades del hardware</li>
+						<li>Que TODOS los usuarios tengan una experiencia mínima, que no se rompa nada</li>
+						<li>Cada vez tenemos más estándares web con fallback</li>
+						<li>Útil vs usable: que sea útil lo más rápido posible</li>
+					</ul>
+					<p><a href="https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4">→ The cost of Javascript (Addy Osmani)</a></p>
+				</section>
+
+				<section data-background="#14D9C4">
+					<h2>Herramientas</h2>
+				</section>
+
+				<section>
+					<h2>Lighthouse</h2>
+					<p>Genera un informe sobre el rendimiento de la web</p>
+					<p><a href="https://developers.google.com/web/tools/lighthouse/">→ Auditar apps web con Lighthouse</a></p>
+					<p><a href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk">→ Instalar Lighthouse en Chrome</a></p>
+				</section>
+
+				<section>
+					<h2>GTmetrix</h2>
+					<p>Analiza el rendimiento de la web y ofrece opciones de optimización</p>
+					<p><a href="https://gtmetrix.com/">→ GTmetrix</a></p>
+				</section>
+				
+				<section>
+					<h2>Conclusiones</h2>
+					<ul>
+						<li>Cuando se optimiza, empezar por lo mínimo, y crecer estableciendo prioridades teniendo en cuenta los usuarios potenciales y los recursos disponibles</li>
+						<li>Establecer prioridades de optimización</li>
+						<li>La simplicidad es la gran aliada de la web y el software en general</li>
+					</ul>
+					<p><a href="https://twitter.com/PerfReviews_">→ @PerfReviews_ en Twitter</a></p>
+				</section>
+
+				<section>
+					<h2>¡Gracias!</h2>
+					<h2>¿Alguna pregunta?</h2>
+					<br>
+					<ul>
+						<li><a href="https://twitter.com/@luisddm_"><strong>Twitter: </strong></a>@luisddm_</li>
+						<li><a href="https://mastodon.technology/@luisddm"><strong>Mastodon: </strong></a>mastodon.technology/@luisddm</li>
+						<li><a href="https://medium.com/@luisddm"><strong>Medium: </strong></a>medium.com/@luisddm</li>
+						<li><a href="https://github.com/luisddm"><strong>Github: </strong></a>github.com/luisddm</li>
+					</ul>
+				</section>
+
 			</div>
 		</div>
 
-		<script src="js/reveal.js"></script>
+		<script src="js/reveal.min.js"></script>
 
 		<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				hash: true,
+
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
